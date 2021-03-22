@@ -7,9 +7,9 @@ class ball{
     restitution:0.5,
 
   }
-this.width=20;
-this.height=20;
-this.body=Bodies.rectangle(x,y,20,20);
+this.width=30;
+this.height=30;
+this.body=Bodies.rectangle(x,y,this.width,this.height);
 
     }
 
