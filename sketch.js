@@ -21,8 +21,8 @@ function setup() {
 ball1=new ball(185,635,27);
 d1= createSprite(570,570,30,30);
 d1.addImage(dimg,"da")
-b1 = new walls(185,435,20,20);
-r1 = new rope(b1.body,{x:mouseX,y:mouseY})
+b1 = new walls(225,435,20,20);
+r1 = new rope(ball1.body,{x:b1.body.position.x,y:b1.body.position.y})
 
 Engine.run(engine);
   
@@ -30,12 +30,12 @@ Engine.run(engine);
 
 
  function draw() {
- console.log(mouseX+" "+mouseY) ;
+ //console.log(mouseX+" "+mouseY) ;
 
-ball1
 
-b1.body.position.y=mouseY;
-b1.body.position.x=mouseX;
+
+//b1.body.position.y=mouseY;
+//b1.body.position.x=mouseX;
 
 //ball1.body.position.y=b1.body.position.y
 
@@ -48,26 +48,23 @@ rectMode(CENTER);
   wall2.display();
   drawSprites();
  
-  b1.display();
+  //b1.display();
   ground.display();
  ball1.display();
- //r1.display();
+ r1.display();
  //console.log(ball1.body.position)
 
 
  }
 
- function keyPressed(){
+ function mouseDragged(){
 
-if (keyCode === UP_ARROW){
-
-  Body.applyForce(ball1.body,ball1.body.position,{x:55,y:-105});
-
+Matter.Body.setPosition(ball1.body,{x:mouseX,y:mouseY})
 
 }
 
+function mouseReleased(){
 
+  r1.fly();
 
 }
-
-

@@ -1,29 +1,33 @@
 class ball{
 
-    constructor(x,y){
+constructor(x,y,r){
 
   var options = {
-
-    restitution:0.5,
+  //isStatic:true,
+    restitution:0.2,
+    friction:0.5,
+    density:1,
 
   }
-this.width=30;
-this.height=30;
-this.body=Bodies.rectangle(x,y,this.width,this.height);
+this.r=r;
+this.body=Bodies.circle(x,y,r,options);
+this.image=loadImage("cball1.jpg");
+World.add(world,this.body)
 
-    }
+}
 
 display(){
-var pos=this.body.position;
 
+  var pos = this.body.position;
 push()
-translate(pos.x,pos.y);
-fill("white")
-rectMode(CENTER)
-rect(x,y,this.width,this.height);
-pop()
+translate(pos.x,pos.y)
+fill("black");
+imageMode(CENTER)
+image(this.image,0,0,this.r,this.r)
+pop();
 
 
 }
+
 
 }
